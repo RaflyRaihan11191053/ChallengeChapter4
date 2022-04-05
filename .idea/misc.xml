@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable/btn_circle.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/frame_welcome.xml" value="0.1125" />
+        <entry key="app/src/main/res/drawable/gradient.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/ic_navigate_next.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/input_text.xml" value="0.143" />
         <entry key="app/src/main/res/font/font.xml" value="0.15648148148148147" />
@@ -13,6 +14,7 @@
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24010416666666667" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_spalsh.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.165" />
       </map>
     </option>
