@@ -30,10 +30,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/selector_input"
         android:id="@+id/ti_email_signin"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_text_hello"
@@ -44,7 +45,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_input_email_signin"
             android:hint="@string/hint_signin_email"
-            android:background="@drawable/input_text"
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_mail"
             android:drawablePadding="12dp"
@@ -54,8 +54,9 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:id="@+id/ti_password_signin"
+        android:background="@drawable/selector_input"
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,11 +65,10 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_input_password_signin"
-            android:background="@drawable/input_text"
             android:hint="@string/hint_signin_password"
             android:inputType="textPassword"
             android:paddingStart="16dp"

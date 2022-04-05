@@ -10,13 +10,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.HandlerCompat.postDelayed
 import androidx.navigation.fragment.findNavController
 import com.example.challengechapter4.databinding.FragmentSpalshBinding
 
 class spalshFragment : Fragment() {
 
-    lateinit var binding: FragmentSpalshBinding
+    private var _binding: FragmentSpalshBinding?= null
+    private val binding get() = _binding!!
 
     val sharedPreferences = "sharedPreferences"
 
@@ -24,7 +26,7 @@ class spalshFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentSpalshBinding.inflate(layoutInflater)
+        _binding = FragmentSpalshBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -34,16 +36,21 @@ class spalshFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
 
             val splashScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
-            val isFirstTime: Boolean = splashScreen.getBoolean("firstTime", true)
+            val isFirstTime: Boolean = splashScreen.getBoolean("firstTime", false)
 
             if (isFirstTime){
-                val editor: SharedPreferences.Editor = splashScreen.edit()
-                editor.putBoolean("firstTime", false)
-                editor.commit()
                 findNavController().navigate(R.id.action_spalshFragment_to_welcomeFragment)
             } else {
-                findNavController().navigate(R.id.action_spalshFragment_to_welcomeFragment)
+                val editor: SharedPreferences.Editor = splashScreen.edit()
+                editor.putBoolean("firstTime", true)
+                editor.apply()
+                findNavController().navigate(R.id.action_spalshFragment_to_signInFragment)
             }
         }, 5000)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

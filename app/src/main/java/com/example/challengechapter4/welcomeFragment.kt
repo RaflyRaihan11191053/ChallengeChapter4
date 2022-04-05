@@ -13,15 +13,14 @@ import com.example.challengechapter4.databinding.FragmentWelcomeBinding
 
 class welcomeFragment : Fragment() {
 
-    lateinit var binding: FragmentWelcomeBinding
-
-    val sharedPreferences = "sharedPreferences"
+    private var _binding: FragmentWelcomeBinding?= null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentWelcomeBinding.inflate(layoutInflater)
+        _binding = FragmentWelcomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -29,18 +28,12 @@ class welcomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnWelcome.setOnClickListener {
-
-            val welcomeScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
-            val isFirstTime: Boolean = welcomeScreen.getBoolean("firstTime", true)
-
-            if (isFirstTime){
-                val editor: SharedPreferences.Editor = welcomeScreen.edit()
-                editor.putBoolean("firstTime", false)
-                editor.commit()
-                findNavController().navigate(R.id.action_spalshFragment_to_welcomeFragment)
-            } else {
-                findNavController().navigate(R.id.action_spalshFragment_to_welcomeFragment)
-            }
+            findNavController().navigate(R.id.action_welcomeFragment_to_signInFragment)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
 }

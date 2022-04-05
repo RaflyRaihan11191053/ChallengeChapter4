@@ -12,7 +12,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_width="180dp"
         android:layout_height="160dp" />
 
@@ -25,7 +25,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/iv_sign_up"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -39,15 +39,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_text_signup"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:layout_width="329dp"
         android:layout_height="wrap_content" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_username_signup"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/selector_input"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         app:counterEnabled="true"
         app:counterMaxLength="20"
         app:endIconMode="clear_text"
@@ -56,7 +57,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_text_register"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="24dp">
+        android:layout_marginTop="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_input_username_signup"
@@ -65,7 +66,6 @@
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_person"
             android:drawablePadding="12dp"
-            android:background="@drawable/input_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -73,15 +73,15 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_email_signup"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/selector_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ti_username_signup"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_input_email_signup"
@@ -89,7 +89,6 @@
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_mail"
             android:drawablePadding="12dp"
-            android:background="@drawable/input_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -97,16 +96,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_password_signup"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/selector_input"
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ti_email_signup"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_input_password_signup"
@@ -115,7 +115,6 @@
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
-            android:background="@drawable/input_text"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
@@ -123,16 +122,17 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ti_confirm_password_signup"
-        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:background="@drawable/selector_input"
         app:endIconMode="password_toggle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ti_password_signup"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_width="match_parent"
-        android:layout_height="48dp">
+        android:layout_height="wrap_content">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_confirm_password_signup"
@@ -141,9 +141,8 @@
             android:paddingStart="16dp"
             android:drawableStart="@drawable/ic_lock"
             android:drawablePadding="12dp"
-            android:background="@drawable/input_text"
             android:layout_width="match_parent"
-            android:layout_height="48dp" />
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -156,7 +155,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/ti_confirm_password_signup"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_width="match_parent"
