@@ -13,7 +13,11 @@ import com.example.challengechapter4.databinding.FragmentEditBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class editFragment : DialogFragment() {
+class editFragment() : DialogFragment() {
+    lateinit var listCash: Cash
+    constructor(listCash: Cash): this(){
+        this.listCash = listCash
+    }
 
     private var myDB: QasbonDatabase?= null
 
@@ -33,8 +37,10 @@ class editFragment : DialogFragment() {
 
         myDB = QasbonDatabase.getInstance(requireContext())
 
-        val objectCash = arguments?.getParcelable<Cash>("cash")
-
+        binding.etEditDate.setText(listCash.date)
+        binding.etEditCash.setText(listCash.cash)
+        binding.etEditIncome.setText(listCash.income)
+        binding.etEditOutcome.setText(listCash.outcome)
     }
 
 }

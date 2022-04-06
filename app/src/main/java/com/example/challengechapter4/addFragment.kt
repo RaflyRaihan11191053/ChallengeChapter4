@@ -68,8 +68,8 @@ class addFragment : DialogFragment() {
                     } else {
                         Toast.makeText(requireContext(), "Gagal menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
                     }
-                    activity?.finish()
                 }
+                dialog?.dismiss()
             }
         }
     }

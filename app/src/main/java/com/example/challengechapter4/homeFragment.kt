@@ -19,6 +19,8 @@ import kotlinx.coroutines.runBlocking
 
 class homeFragment : Fragment() {
 
+    private lateinit var adapter: CashAdapter
+
     private var _binding: FragmentHomeBinding?= null
     private val binding get() = _binding!!
 
@@ -36,6 +38,12 @@ class homeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        adapter = CashAdapter()
+        binding.rvCash.adapter = adapter
+        fetchData()
+
+        myDB = QasbonDatabase.getInstance(requireContext())
 
         val homeScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
 
@@ -58,8 +66,9 @@ class homeFragment : Fragment() {
             val listStudent = myDB?.qasbonDao()?.getAllCash()
             runBlocking(Dispatchers.Main) {
                 listStudent?.let {
-                    val adapter = CashAdapter(it as ArrayList<Cash>)
-                    binding.rvCash.adapter = adapter
+//                    val adapter = CashAdapter(it as ArrayList<Cash>)
+//                    binding.rvCash.adapter = adapter
+                    adapter.setData(it)
                 }
             }
         }

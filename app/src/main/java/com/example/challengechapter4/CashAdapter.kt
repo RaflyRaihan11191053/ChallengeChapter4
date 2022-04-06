@@ -11,7 +11,9 @@ import com.example.challengechapter4.databinding.LayoutCashBinding
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 
-class CashAdapter(val listCash: List<Cash>): RecyclerView.Adapter<CashAdapter.ViewHolder>() {
+class CashAdapter: RecyclerView.Adapter<CashAdapter.ViewHolder>() {
+
+    private val listCash = mutableListOf<Cash>()
 
     class ViewHolder(val binding: LayoutCashBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -31,10 +33,18 @@ class CashAdapter(val listCash: List<Cash>): RecyclerView.Adapter<CashAdapter.Vi
             tvIncome.text = listCash[position].income.toString()
             tvOutcome.text = listCash[position].outcome.toString()
 
+            val cash = tvCash.text.toString().toInt()
+            val income = tvIncome.text.toString().toInt()
+            val outcome = tvOutcome.text.toString().toInt()
+
+            val money = cash - outcome + income
+
+            tvMoney.text = money.toString()
+
             ibEdit.setOnClickListener {
-                val intent = Intent(it.context, editFragment::class.java)
-                intent.putExtra("cash", listCash[position])
-                it.context.startActivity(intent)
+                val activity = it.context as MainActivity
+                val dialogFragment = editFragment(listCash[position])
+                dialogFragment.show(activity.supportFragmentManager, null)
             }
 
             ibDelete.setOnClickListener {
@@ -58,6 +68,12 @@ class CashAdapter(val listCash: List<Cash>): RecyclerView.Adapter<CashAdapter.Vi
                 }.setMessage("Apakah anda yakin ingin menghapus data kas pada tanggal ${listCash[position].date}").setTitle("Konfirmasi hapus").create().show()
             }
         }
+    }
+
+    fun setData(cashList: List<Cash>) {
+        listCash.clear()
+        listCash.addAll(cashList)
+        notifyDataSetChanged()
     }
 
 }
