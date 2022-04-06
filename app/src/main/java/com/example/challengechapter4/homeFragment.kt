@@ -12,6 +12,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.challengechapter4.databinding.FragmentHomeBinding
 import com.example.challengechapter4.databinding.FragmentSignInBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class homeFragment : Fragment() {
 
@@ -19,6 +23,8 @@ class homeFragment : Fragment() {
     private val binding get() = _binding!!
 
     val sharedPreferences = "sharedPreferences"
+
+    private var myDB: QasbonDatabase?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,5 +51,27 @@ class homeFragment : Fragment() {
         binding.ibAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }
+    }
+
+    fun fetchData() {
+        GlobalScope.launch {
+            val listStudent = myDB?.qasbonDao()?.getAllCash()
+            runBlocking(Dispatchers.Main) {
+                listStudent?.let {
+                    val adapter = CashAdapter(it as ArrayList<Cash>)
+                    binding.rvCash.adapter = adapter
+                }
+            }
+        }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        fetchData()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        QasbonDatabase.destroyInstance()
     }
 }

@@ -13,6 +13,6 @@ data class Cash (
     @ColumnInfo(name = "date") var date: String,
     @ColumnInfo(name = "cash") var cash: Int,
     @ColumnInfo(name = "income") var income: Int,
-    @ColumnInfo(name = "outcome") var outcome: String
+    @ColumnInfo(name = "outcome") var outcome: Int
     ): Parcelable{
     }

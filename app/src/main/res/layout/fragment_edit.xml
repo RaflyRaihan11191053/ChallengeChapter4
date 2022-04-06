@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".addFragment">
+    android:padding="24dp"
+    tools:context=".editFragment">
 
     <TextView
-        android:id="@+id/tv_add"
-        android:text="@string/text_add"
+        android:id="@+id/tv_edit"
+        android:text="@string/text_edit"
         android:textSize="16sp"
         android:fontFamily="@font/montserratbold"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,19 +21,19 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:background="@drawable/selector_input"
-        android:id="@+id/ti_date"
+        android:id="@+id/et_date"
         app:endIconMode="clear_text"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_add"
+        app:layout_constraintTop_toBottomOf="@id/tv_edit"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="24dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_input_date"
+            android:id="@+id/et_edit_date"
             android:hint="@string/hint_date"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
@@ -47,19 +47,19 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:background="@drawable/selector_input"
-        android:id="@+id/ti_cash"
+        android:id="@+id/et_cash"
         app:endIconMode="clear_text"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ti_date"
+        app:layout_constraintTop_toBottomOf="@id/et_date"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_input_cash"
+            android:id="@+id/et_edit_cash"
             android:hint="@string/hint_cash"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
@@ -73,19 +73,19 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:background="@drawable/selector_input"
-        android:id="@+id/ti_income"
+        android:id="@+id/et_income"
         app:endIconMode="clear_text"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ti_cash"
+        app:layout_constraintTop_toBottomOf="@id/et_cash"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_input_income"
+            android:id="@+id/et_edit_income"
             android:hint="@string/hint_income"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
@@ -99,19 +99,19 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:background="@drawable/selector_input"
-        android:id="@+id/ti_outcome"
+        android:id="@+id/et_outcome"
         app:endIconMode="clear_text"
         android:layout_width="280dp"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ti_income"
+        app:layout_constraintTop_toBottomOf="@id/et_income"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
         android:layout_marginTop="12dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_input_outcome"
+            android:id="@+id/et_edit_outcome"
             android:hint="@string/hint_outcome"
             android:fontFamily="@font/montserratmedium"
             android:paddingStart="16dp"
@@ -123,15 +123,15 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_edit"
         android:background="@drawable/button"
-        android:text="@string/btn_add"
+        android:text="@string/btn_edit"
         android:fontFamily="@font/montserratsemibold"
         android:textSize="16sp"
         android:textAllCaps="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/ti_outcome"
+        app:layout_constraintTop_toBottomOf="@id/et_outcome"
         android:layout_marginTop="24dp"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"

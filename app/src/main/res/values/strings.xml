@@ -23,4 +23,6 @@
     <string name="hint_outcome">Pengeluaran</string>
     <string name="btn_add">Tambah</string>
     <string name="tv_logout">Logout</string>
+    <string name="text_edit">Edit Laporan Kas</string>
+    <string name="btn_edit">Edit</string>
 </resources>
