@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name">ChallengeChapter4</string>
+    <string name="app_name">Qasbon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_welcome">Selamat Datang di Qasbon</string>
     <string name="text_welcome">Permudah management kafe dan restoran kamu dengan Qasbon. Kelola Kas, Pemasukan, dan Pengeluaran akan terasa lebih mudah.</string>
     <string name="text_hello">Hello,\nWelcome\nto Qasbon!</string>
-    <string name="hint_signin_email">Email</string>
+    <string name="hint_signin_username">Username</string>
     <string name="hint_signin_password">Password</string>
     <string name="btn_signin">Sign In</string>
     <string name="no_account">Belum memiliki akun?</string>
@@ -16,4 +16,11 @@
     <string name="hint_confirm_signup_password">Konfirmasi Password</string>
     <string name="btn_signup">Sign Up</string>
     <string name="text_register">Daftar sekarang dan dapatkan kemudahan dalam memanage kafe dan restoran kamu di Qasbon.</string>
+    <string name="text_add">Tambah Laporan Kas</string>
+    <string name="hint_date">Tanggal</string>
+    <string name="hint_cash">Kas Awal</string>
+    <string name="hint_income">Pemasukan</string>
+    <string name="hint_outcome">Pengeluaran</string>
+    <string name="btn_add">Tambah</string>
+    <string name="tv_logout">Logout</string>
 </resources>

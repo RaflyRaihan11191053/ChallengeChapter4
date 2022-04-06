@@ -36,15 +36,20 @@ class spalshFragment : Fragment() {
         Handler(Looper.getMainLooper()).postDelayed({
 
             val splashScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
-            val isFirstTime: Boolean = splashScreen.getBoolean("firstTime", false)
+            val isFirstTime: Boolean = splashScreen.getBoolean("firstTime", true)
+            val username = splashScreen.getString("username", "Admin")
 
             if (isFirstTime){
                 findNavController().navigate(R.id.action_spalshFragment_to_welcomeFragment)
-            } else {
                 val editor: SharedPreferences.Editor = splashScreen.edit()
-                editor.putBoolean("firstTime", true)
+                editor.putBoolean("firstTime", false)
                 editor.apply()
-                findNavController().navigate(R.id.action_spalshFragment_to_signInFragment)
+            } else {
+                if (username != "Admin") {
+                    findNavController().navigate(R.id.action_spalshFragment_to_homeFragment)
+                } else {
+                    findNavController().navigate(R.id.action_spalshFragment_to_signInFragment)
+                }
             }
         }, 5000)
     }

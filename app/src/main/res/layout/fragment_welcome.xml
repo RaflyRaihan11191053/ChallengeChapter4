@@ -18,7 +18,7 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lt_welcome_animation"
-        app:lottie_rawRes="@raw/making_notes"
+        app:lottie_rawRes="@raw/notes_animation"
         app:lottie_loop="true"
         app:lottie_autoPlay="true"
         app:layout_constraintStart_toStartOf="parent"

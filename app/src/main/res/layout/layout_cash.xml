@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp"
+    app:contentPadding="12dp"
+    android:layout_margin="4dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/label_date"
+            android:text="Tanggal :"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/label_cash"
+            android:text="Kas Awal :"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_date"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/label_income"
+            android:text="Pemasukan :"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_cash"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/label_outcome"
+            android:text="Pengeluaran :"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_income"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/label_money"
+            android:text="Total Kas :"
+            android:fontFamily="@font/montserratregular"
+            android:textColor="@color/gray"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_outcome"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:text=""
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black_one"
+            android:textSize="20sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/label_date"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_cash"
+            android:text=""
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black_one"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_date"
+            app:layout_constraintStart_toEndOf="@id/label_cash"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_income"
+            android:text=""
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black_one"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_cash"
+            app:layout_constraintStart_toEndOf="@id/label_income"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_outcome"
+            android:text=""
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black_one"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_income"
+            app:layout_constraintStart_toEndOf="@id/label_outcome"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tv_money"
+            android:text=""
+            android:fontFamily="@font/montserratmedium"
+            android:textColor="@color/black_one"
+            android:textSize="20sp"
+            app:layout_constraintTop_toBottomOf="@id/label_outcome"
+            app:layout_constraintStart_toEndOf="@id/label_money"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageButton
+            android:id="@+id/ib_delete"
+            android:background="@drawable/ib_delete"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+        <ImageButton
+            android:id="@+id/ib_edit"
+            android:background="@drawable/ib_edit"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ib_delete"
+            android:layout_marginEnd="12dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

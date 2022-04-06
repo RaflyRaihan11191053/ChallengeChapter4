@@ -5,18 +5,28 @@
       <map>
         <entry key="app/src/main/res/drawable/btn_circle.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/button.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/cv_one.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/frame_welcome.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/gradient.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/gradient_two.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ib_add.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ib_delet.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ib_edit.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ic_add.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ic_date.xml" value="0.143" />
+        <entry key="app/src/main/res/drawable/ic_mail.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/ic_navigate_next.xml" value="0.1125" />
         <entry key="app/src/main/res/drawable/input_text.xml" value="0.143" />
         <entry key="app/src/main/res/drawable/selector_input.xml" value="0.143" />
         <entry key="app/src/main/res/font/font.xml" value="0.15648148148148147" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_add.xml" value="0.24010416666666667" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_sign_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_spalsh.xml" value="0.23854166666666668" />
         <entry key="app/src/main/res/layout/fragment_welcome.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/layout_cash.xml" value="0.24270833333333333" />
       </map>
     </option>
   </component>
