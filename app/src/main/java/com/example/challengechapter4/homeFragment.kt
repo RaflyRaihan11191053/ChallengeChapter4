@@ -62,10 +62,17 @@ class homeFragment : Fragment() {
     }
 
     fun fetchData() {
+
         GlobalScope.launch {
-            val listStudent = myDB?.qasbonDao()?.getAllCash()
+            val listCash = myDB?.qasbonDao()?.getAllCash()
             runBlocking(Dispatchers.Main) {
-                listStudent?.let {
+                if (listCash.isNullOrEmpty()){
+                    binding.rvCash.visibility = View.GONE
+                } else {
+                    binding.rvCash.visibility = View.VISIBLE
+                    binding.laEmpty.visibility = View.GONE
+                }
+                listCash?.let {
                     adapter.setData(it)
                 }
             }
