@@ -40,17 +40,25 @@ class signInFragment : Fragment() {
         myDB = QasbonDatabase.getInstance(requireContext())
 
         binding.btnSignin.setOnClickListener {
-            GlobalScope.async {
-                val result = myDB?.qasbonDao()?.signIn(binding.etInputUsernameSignin.text.toString(), binding.etInputPasswordSignin.text.toString())
-                runBlocking(Dispatchers.Main) {
-                    if (result == false){
-                        Toast.makeText(context, "Sign In gagal", Toast.LENGTH_SHORT).show()
-                    } else {
-                        val editor: SharedPreferences.Editor = signInScreen.edit()
-                        editor.putString("username", binding.etInputUsernameSignin.text.toString())
-                        editor.apply()
-                        Toast.makeText(context, "Sign In Berhasil", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+            if (binding.etInputUsernameSignin.text.isNullOrEmpty() && binding.etInputPasswordSignin.text.isNullOrEmpty()){
+                Toast.makeText(context, "Masukkan Username dan Password kamu terlebih dahulu", Toast.LENGTH_LONG).show()
+            } else if (binding.etInputUsernameSignin.text.isNullOrEmpty()){
+                binding.etInputUsernameSignin.error = "Masukkan Username kamu yang telah terdaftar"
+            } else if (binding.etInputPasswordSignin.text.isNullOrEmpty()){
+                binding.etInputPasswordSignin.error = "Masukkan Password kamu"
+            } else {
+                GlobalScope.async {
+                    val result = myDB?.qasbonDao()?.signIn(binding.etInputUsernameSignin.text.toString(), binding.etInputPasswordSignin.text.toString())
+                    runBlocking(Dispatchers.Main) {
+                        if (result == false){
+                            Toast.makeText(context, "Sign In gagal", Toast.LENGTH_SHORT).show()
+                        } else {
+                            val editor: SharedPreferences.Editor = signInScreen.edit()
+                            editor.putString("username", binding.etInputUsernameSignin.text.toString())
+                            editor.apply()
+                            Toast.makeText(context, "Sign In Berhasil", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_signInFragment_to_homeFragment)
+                        }
                     }
                 }
             }

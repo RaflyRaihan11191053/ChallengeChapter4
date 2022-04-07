@@ -52,24 +52,39 @@ class addFragment : DialogFragment() {
         myDB = QasbonDatabase.getInstance(requireContext())
 
         binding.btnAdd.setOnClickListener {
-            val objectCash = Cash(
-                null,
-                binding.etInputDate.text.toString(),
-                binding.etInputCash.text.toString().toInt(),
-                binding.etInputIncome.text.toString().toInt(),
-                binding.etInputOutcome.text.toString().toInt()
-            )
+            if (binding.etInputDate.text.isNullOrEmpty() &&
+                    binding.etInputCash.text.isNullOrEmpty() &&
+                    binding.etInputIncome.text.isNullOrEmpty() &&
+                    binding.etInputOutcome.text.isNullOrEmpty()){
+                Toast.makeText(context, "Data kas masih kosong, harap isi terlebih dahulu", Toast.LENGTH_SHORT).show()
+            } else if (binding.etInputDate.text.isNullOrEmpty()) {
+                binding.etInputDate.error = "Masukkan tanggal laporan kas"
+            } else if (binding.etInputCash.text.isNullOrEmpty()) {
+                binding.etInputCash.error = "Masukkan jumlah kas awal"
+            } else if (binding.etInputIncome.text.isNullOrEmpty()) {
+                binding.etInputIncome.error = "Masukkan pemasukan kamu"
+            } else if (binding.etInputOutcome.text.isNullOrEmpty()) {
+                binding.etInputOutcome.error = "Masukkan pengeluaran kamu"
+            } else {
+                val objectCash = Cash(
+                    null,
+                    binding.etInputDate.text.toString(),
+                    binding.etInputCash.text.toString().toInt(),
+                    binding.etInputIncome.text.toString().toInt(),
+                    binding.etInputOutcome.text.toString().toInt()
+                )
 
-            GlobalScope.async {
-                val result = myDB?.qasbonDao()?.insertCash(objectCash)
-                runBlocking(Dispatchers.Main) {
-                    if (result != 0.toLong()) {
-                        Toast.makeText(requireContext(), "Sukses menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
-                    } else {
-                        Toast.makeText(requireContext(), "Gagal menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
+                GlobalScope.async {
+                    val result = myDB?.qasbonDao()?.insertCash(objectCash)
+                    runBlocking(Dispatchers.Main) {
+                        if (result != 0.toLong()) {
+                            Toast.makeText(requireContext(), "Sukses menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
+                        } else {
+                            Toast.makeText(requireContext(), "Gagal menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
+                        }
                     }
+                    dialog?.dismiss()
                 }
-                dialog?.dismiss()
             }
         }
     }

@@ -36,19 +36,34 @@ class signUpFragment : Fragment() {
         myDB = QasbonDatabase.getInstance(requireContext())
 
         binding.btnSignup.setOnClickListener {
-            GlobalScope.async {
-                val result = myDB?.qasbonDao()?.signUp(
-                    User(null,
-                        binding.etInputUsernameSignup.text.toString(),
-                        binding.etInputEmailSignup.text.toString(),
-                        binding.etInputPasswordSignup.text.toString())
-                )
-                runBlocking(Dispatchers.Main) {
-                    if (result != 0.toLong()){
-                        Toast.makeText(activity, "Berhasil Sign Up", Toast.LENGTH_SHORT).show()
-                        findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
-                    } else {
-                        Toast.makeText(activity, "Gagal Sign Up", Toast.LENGTH_SHORT).show()
+            if (binding.etInputUsernameSignup.text.isNullOrEmpty() &&
+                    binding.etInputEmailSignup.text.isNullOrEmpty() &&
+                    binding.etInputPasswordSignup.text.isNullOrEmpty() &&
+                    binding.etConfirmPasswordSignup.text.isNullOrEmpty()) {
+                Toast.makeText(context, "Form regitrasi belum terisi, harap isi terlebih dahulu", Toast.LENGTH_LONG).show()
+            } else if (binding.etInputUsernameSignup.text.isNullOrEmpty()) {
+                binding.etInputUsernameSignup.error = "Tentukan Username kamu terlebih dahulu"
+            } else if (binding.etInputEmailSignup.text.isNullOrEmpty()) {
+                binding.etInputEmailSignup.error = "Masukkan Email yang akan kamu pakai"
+            } else if (binding.etInputPasswordSignup.text.isNullOrEmpty()) {
+                binding.etInputPasswordSignup.error = "Tentukan Password kamu terlebih dahulu"
+            } else if (binding.etConfirmPasswordSignup.text.isNullOrEmpty()) {
+                binding.etConfirmPasswordSignup.error = "Konfirmasi Password kamu"
+            } else {
+                GlobalScope.async {
+                    val result = myDB?.qasbonDao()?.signUp(
+                        User(null,
+                            binding.etInputUsernameSignup.text.toString(),
+                            binding.etInputEmailSignup.text.toString(),
+                            binding.etInputPasswordSignup.text.toString())
+                    )
+                    runBlocking(Dispatchers.Main) {
+                        if (result != 0.toLong()){
+                            Toast.makeText(activity, "Berhasil Sign Up", Toast.LENGTH_SHORT).show()
+                            findNavController().navigate(R.id.action_signUpFragment_to_signInFragment)
+                        } else {
+                            Toast.makeText(activity, "Gagal Sign Up", Toast.LENGTH_SHORT).show()
+                        }
                     }
                 }
             }

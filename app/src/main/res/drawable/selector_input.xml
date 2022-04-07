@@ -4,6 +4,7 @@
     <item android:state_enabled="true" android:state_focused="true">
 
         <shape android:shape="rectangle">
+            <corners android:radius="8dp"/>
             <stroke android:color="@color/blue"/>
         </shape>
 
@@ -12,10 +13,10 @@
     <item android:state_enabled="true">
 
         <shape android:shape="rectangle">
+            <corners android:radius="8dp" />
             <stroke android:color="@color/light_gray"/>
         </shape>
 
     </item>
-
 
 </selector>
