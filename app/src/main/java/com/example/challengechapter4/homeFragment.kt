@@ -66,8 +66,6 @@ class homeFragment : Fragment() {
             val listStudent = myDB?.qasbonDao()?.getAllCash()
             runBlocking(Dispatchers.Main) {
                 listStudent?.let {
-//                    val adapter = CashAdapter(it as ArrayList<Cash>)
-//                    binding.rvCash.adapter = adapter
                     adapter.setData(it)
                 }
             }
