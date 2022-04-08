@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.example.challengechapter4.databinding.FragmentAddBinding
 import com.example.challengechapter4.databinding.FragmentEditBinding
 import kotlinx.coroutines.Dispatchers
@@ -73,9 +74,10 @@ class editFragment() : DialogFragment() {
 
             GlobalScope.async {
                 val result = myDB?.qasbonDao()?.updateCash(objectCash)
-                runBlocking(Dispatchers.Main) {
+                activity?.runOnUiThread {
                     if (result != 0) {
                         Toast.makeText(requireContext(), "Sukses mengubah data kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
+                        findNavController().navigate(R.id.action_editFragment_to_homeFragment)
                     } else {
                         Toast.makeText(requireContext(), "Gagal mengubah data kas pada tanggal${objectCash.date}", Toast.LENGTH_SHORT).show()
                     }

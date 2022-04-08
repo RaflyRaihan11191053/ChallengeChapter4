@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter4.databinding.LayoutCashBinding
 import kotlinx.coroutines.GlobalScope
@@ -54,7 +55,7 @@ class CashAdapter: RecyclerView.Adapter<CashAdapter.ViewHolder>() {
                     GlobalScope.async {
                         val result = mDb?.qasbonDao()?.deleteCash(listCash[position])
 
-                        (holder.itemView.context as homeFragment).run {
+                        (holder.itemView.context as MainActivity).runOnUiThread {
                             if (result != 0) {
                                 Toast.makeText(it.context, "Data kas tanggal ${listCash[position].date} berhasil dihapus", Toast.LENGTH_LONG).show()
                             } else {

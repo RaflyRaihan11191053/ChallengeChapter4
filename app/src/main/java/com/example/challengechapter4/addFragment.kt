@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.example.challengechapter4.databinding.FragmentAddBinding
 import com.example.challengechapter4.databinding.FragmentSignInBinding
 import kotlinx.coroutines.Dispatchers
@@ -76,9 +77,10 @@ class addFragment : DialogFragment() {
 
                 GlobalScope.async {
                     val result = myDB?.qasbonDao()?.insertCash(objectCash)
-                    runBlocking(Dispatchers.Main) {
+                    activity?.runOnUiThread {
                         if (result != 0.toLong()) {
                             Toast.makeText(requireContext(), "Sukses menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
+                            findNavController().navigate(R.id.action_addFragment_to_homeFragment)
                         } else {
                             Toast.makeText(requireContext(), "Gagal menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
                         }

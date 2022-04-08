@@ -59,6 +59,7 @@ class homeFragment : Fragment() {
         binding.ibAdd.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_addFragment)
         }
+
     }
 
     fun fetchData() {
