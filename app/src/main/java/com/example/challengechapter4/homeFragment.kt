@@ -1,5 +1,6 @@
 package com.example.challengechapter4
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
@@ -50,10 +51,21 @@ class homeFragment : Fragment() {
         binding.tvUsername.text = "Halo, ${homeScreen.getString("username", "Admin")}!"
 
         binding.tvLogout.setOnClickListener {
-            val editor: SharedPreferences.Editor = homeScreen.edit()
-            editor.clear()
-            editor.apply()
-            findNavController().navigate(R.id.action_homeFragment_to_signInFragment)
+            val alert = AlertDialog.Builder(requireContext())
+            alert.apply{
+                setTitle("Logout")
+                setMessage("Apakah anda yakin ingin log out?")
+                setNegativeButton("Batal"){dialog,which->
+                    dialog.dismiss()
+                }
+                setPositiveButton("Logout"){dialog,which->
+                    dialog.dismiss()
+
+                    homeScreen.edit().clear().apply()
+                    findNavController().navigate(R.id.action_homeFragment_to_signInFragment)
+                }
+            }
+            alert.show()
         }
 
         binding.ibAdd.setOnClickListener {
