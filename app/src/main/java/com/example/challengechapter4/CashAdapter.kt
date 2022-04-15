@@ -1,12 +1,9 @@
 package com.example.challengechapter4
 
 import android.app.AlertDialog
-import android.content.Intent
-import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.challengechapter4.databinding.LayoutCashBinding
 import kotlinx.coroutines.GlobalScope
@@ -15,6 +12,8 @@ import kotlinx.coroutines.async
 class CashAdapter: RecyclerView.Adapter<CashAdapter.ViewHolder>() {
 
     private val listCash = mutableListOf<Cash>()
+
+    lateinit var qasbonRepository: QasbonRepository
 
     class ViewHolder(val binding: LayoutCashBinding): RecyclerView.ViewHolder(binding.root)
 
@@ -53,7 +52,7 @@ class CashAdapter: RecyclerView.Adapter<CashAdapter.ViewHolder>() {
                         p0, p1 -> val mDb = QasbonDatabase.getInstance(holder.itemView.context)
 
                     GlobalScope.async {
-                        val result = mDb?.qasbonDao()?.deleteCash(listCash[position])
+                        val result = qasbonRepository.deleteCash(listCash[position])
 
                         (holder.itemView.context as MainActivity).runOnUiThread {
                             if (result != 0) {

@@ -8,11 +8,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.example.challengechapter4.databinding.FragmentHomeBinding
-import com.example.challengechapter4.databinding.FragmentSignInBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -28,6 +25,8 @@ class homeFragment : Fragment() {
     val sharedPreferences = "sharedPreferences"
 
     private var myDB: QasbonDatabase?= null
+
+    var qasbonRepository: QasbonRepository?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +44,7 @@ class homeFragment : Fragment() {
         fetchData()
 
         myDB = QasbonDatabase.getInstance(requireContext())
+        qasbonRepository = QasbonRepository(requireContext())
 
         val homeScreen: SharedPreferences = requireActivity().getSharedPreferences(sharedPreferences, Context.MODE_PRIVATE)
 
@@ -75,18 +75,19 @@ class homeFragment : Fragment() {
     }
 
     fun fetchData() {
-
         GlobalScope.launch {
-            val listCash = myDB?.qasbonDao()?.getAllCash()
+            val listCash = qasbonRepository?.getAllCash()
             runBlocking(Dispatchers.Main) {
-                if (listCash.isNullOrEmpty()){
-                    binding.rvCash.visibility = View.GONE
-                } else {
-                    binding.rvCash.visibility = View.VISIBLE
-                    binding.laEmpty.visibility = View.GONE
-                }
-                listCash?.let {
-                    adapter.setData(it)
+                listCash.let {
+                    if (listCash.isNullOrEmpty()){
+                        binding.rvCash.visibility = View.GONE
+                    } else {
+                        binding.rvCash.visibility = View.VISIBLE
+                        binding.laEmpty.visibility = View.GONE
+                    }
+                    listCash?.let {
+                        adapter.setData(it)
+                    }
                 }
             }
         }

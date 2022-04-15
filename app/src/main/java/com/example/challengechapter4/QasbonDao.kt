@@ -1,6 +1,7 @@
 package com.example.challengechapter4
 
 import androidx.room.*
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface QasbonDao {
@@ -10,7 +11,7 @@ interface QasbonDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun signUp(user: User): Long
 
-    @Query("SELECT * FROM Cash")
+    @Query("SELECT * FROM cash_table")
     fun getAllCash(): List<Cash>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

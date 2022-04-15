@@ -22,6 +22,8 @@ class addFragment : DialogFragment() {
 
     private var myDB: QasbonDatabase?= null
 
+    lateinit var qasbonRepository: QasbonRepository
+
     private var _binding: FragmentAddBinding?= null
     private val binding get() = _binding!!
 
@@ -35,6 +37,8 @@ class addFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        qasbonRepository = QasbonRepository(requireContext())
 
         val myCalendar = Calendar.getInstance()
 
@@ -76,7 +80,7 @@ class addFragment : DialogFragment() {
                 )
 
                 GlobalScope.async {
-                    val result = myDB?.qasbonDao()?.insertCash(objectCash)
+                    val result = qasbonRepository.insertCash(objectCash)
                     activity?.runOnUiThread {
                         if (result != 0.toLong()) {
                             Toast.makeText(requireContext(), "Sukses menambahkan Kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()

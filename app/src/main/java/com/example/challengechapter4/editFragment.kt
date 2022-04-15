@@ -27,6 +27,8 @@ class editFragment() : DialogFragment() {
 
     private var myDB: QasbonDatabase?= null
 
+    lateinit var qasbonRepository: QasbonRepository
+
     private var _binding: FragmentEditBinding?= null
     private val binding get() = _binding!!
 
@@ -40,6 +42,8 @@ class editFragment() : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        qasbonRepository = QasbonRepository(requireContext())
 
         val myCalendar = Calendar.getInstance()
 
@@ -73,7 +77,7 @@ class editFragment() : DialogFragment() {
             objectCash.outcome = binding.etEditOutcome.text.toString().toInt()
 
             GlobalScope.async {
-                val result = myDB?.qasbonDao()?.updateCash(objectCash)
+                val result = qasbonRepository.updateCash(objectCash)
                 activity?.runOnUiThread {
                     if (result != 0) {
                         Toast.makeText(requireContext(), "Sukses mengubah data kas pada tanggal ${objectCash.date}", Toast.LENGTH_LONG).show()
